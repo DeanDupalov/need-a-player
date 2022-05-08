@@ -11,11 +11,11 @@ const GetInTouch = () => {
                         <ul className="contact-list">
                             <li>
                                 <div className="icon"><span className="mai-map"></span></div>
-                                <div className="content">123 Fake Street, New York, USA</div>
+                                <div className="content">123 Fake Street, London , UK</div>
                             </li>
                             <li>
                                 <div className="icon"><span className="mai-mail"></span></div>
-                                <div className="content"><a href="#">info@digigram.com</a></div>
+                                <div className="content"><a href="#">info@need-a-player.com</a></div>
                             </li>
                             <li>
                                 <div className="icon"><span className="mai-phone-portrait"></span></div>
