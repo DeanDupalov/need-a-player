@@ -1,10 +1,25 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
-import HomeBanner from "./HomeBanner"
 
 const Header = () => {
-
+    const {user} = useContext(AuthContext)
     const activated = (isActive) => "nav-link" + (isActive ? " active" : "");
+
+    const guestButton = (
+        <div>
+            <NavLink to="/login" className="btn btn-outline rounded-pill">Login</NavLink>
+            <NavLink to="/register" className="btn btn-outline rounded-pill">Register</NavLink>
+        </div>
+    );
+
+    const userButtons = (
+        <div>
+            <NavLink to="#" className="btn btn-outline rounded-pill">Profile, {user.email}</NavLink>
+            <NavLink to="/logout" className="btn btn-outline rounded-pill">Logout</NavLink>
+        </div>
+    );
 
     return (
         <header>
@@ -37,20 +52,17 @@ const Header = () => {
                         </ul>
 
                         <div className="ml-auto">
-                            <div>
-                                <NavLink to="/login" className="btn btn-outline rounded-pill">Login</NavLink>
-                                <NavLink to="/register" className="btn btn-outline rounded-pill">Register</NavLink>
-                            </div>
-                            <div>
-                                <NavLink to="#" className="btn btn-outline rounded-pill">Profile</NavLink>
-                                <NavLink to="#" className="btn btn-outline rounded-pill">Logout</NavLink>
-                            </div>
+                            {user.email
+                                ? userButtons
+                                : guestButton
+                            }
+
                         </div>
                     </div>
                 </div>
             </nav>
 
-            
+
         </header>
     )
 }

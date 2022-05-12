@@ -1,13 +1,52 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { AuthContext } from "../contexts/AuthContext";
+
+import * as authService from '../services/auth';
+
 const Register = () => {
+
+    const { register } = useContext(AuthContext);
+    const navigate = useNavigate()
+
+    const onRegisterHandler = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(e.currentTarget);
+
+        let email = formData.get('email');
+        let password = formData.get('password');
+        let repass = formData.get('repass');
+
+        if (password !== repass){
+            return alert('Passwords do not match!')
+        }
+
+        authService.register(email, password)
+            .then((authData) => {
+
+                register(authData);
+            
+                navigate('/')
+            })
+            .catch(err => {
+                //TODO notification
+                console.log('react' , err.message);
+            })
+
+
+    }
+
     return (
-        <div class="container mt-6 p-5">
-            <div class="row d-flex justify-content-center m-6">
+        <div className="container mt-6 p-5">
+            <div className="row d-flex justify-content-center m-6">
                 <div className="col-4">
                     <div className="subhead">Please</div>
                     <h2 className="title-section">Register</h2>
                     <div className="divider"></div>
 
-                    <form action="#">
+                    <form onSubmit={onRegisterHandler} method="POST">
                         <div className="py-2">
                             <input type="text" className="form-control" name="email" placeholder="Email" />
                         </div>
