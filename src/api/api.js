@@ -1,4 +1,3 @@
-
 const baseUrl = 'http://localhost:3030';
 
 function createOptions(method = 'get', data, token=null) {
@@ -38,8 +37,8 @@ export async function get(url) {
     return request(url, createOptions());
 }
 
-export async function post(url, data) {
-    return request(url, createOptions('post', data));
+export async function post(url, data, token) {
+    return request(url, createOptions('post', data, token));
 }
 
 export async function register(email, password) {
@@ -54,8 +53,8 @@ export async function login(email, password) {
     return result;
 }
 
+export async function logout() {
+    const result = await get('/users/logout');
 
-// export const logout = () => {
-//     fetch(`${baseUrl}/logout`)
-//         .then
-// }
+    return result;
+}

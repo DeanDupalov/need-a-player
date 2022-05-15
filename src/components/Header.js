@@ -1,11 +1,27 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+import * as authService from '../api/data';
 
 
 const Header = () => {
-    const {user} = useContext(AuthContext)
+    const { user, logout } = useContext(AuthContext)
+    const navigate = useNavigate()
     const activated = (isActive) => "nav-link" + (isActive ? " active" : "");
+
+    const logoutHandler = (e) => {
+        e.preventDefault()
+        authService.logout(user.accessToken)
+            .then(() => {
+                logout();
+                navigate('/')
+            })
+            .catch(err => {
+                //TODO notification
+                console.log(err);
+            })
+    }
 
     const guestButton = (
         <div>
@@ -16,8 +32,8 @@ const Header = () => {
 
     const userButtons = (
         <div>
-            <NavLink to="#" className="btn btn-outline rounded-pill">Profile, {user.email}</NavLink>
-            <NavLink to="/logout" className="btn btn-outline rounded-pill">Logout</NavLink>
+            <NavLink to="/profile" className="btn btn-outline rounded-pill">Profile, {user.email}</NavLink>
+            <NavLink to="/javascript:void(0)" onClick={logoutHandler} className="btn btn-outline rounded-pill">Logout</NavLink>
         </div>
     );
 
@@ -33,19 +49,30 @@ const Header = () => {
 
                     <div className="navbar-collapse collapse" id="navbarContent">
                         <ul className="navbar-nav ml-lg-4 pt-3 pt-lg-0">
-                            <li className="nav-item ">
-                                <NavLink to="index.html" className={activated()}>Create Event</NavLink>
-                            </li>
+                            {user.email
+                                ? (
+                                    <>
+                                        <li className="nav-item ">
+                                            <NavLink to="/create" className={activated()}>Create Event</NavLink>
+                                        </li>
+
+                                        <li className="nav-item">
+                                            <NavLink to="about.html" className={activated()}>Be a Player</NavLink>
+                                        </li>
+
+                                        <li className="nav-item">
+                                            <NavLink to="blog.html" className={activated()}>My Events</NavLink>
+                                        </li>
+                                    </>
+                                )
+                                : ''
+                            }
+
 
                             <li className="nav-item">
-                                <NavLink to="about.html" className={activated()}>Be a Player</NavLink>
+                                <NavLink to="/find" className={activated()}>Search</NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink to="/find" className={activated()}>Find</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink to="blog.html" className={activated()}>My Events</NavLink>
-                            </li>
+
                             <li className="nav-item">
                                 <NavLink to="/contact" className={activated()}>Contact us</NavLink>
                             </li>

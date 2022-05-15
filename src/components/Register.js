@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../contexts/AuthContext";
 
-import * as authService from '../services/auth';
+import * as authService from '../api/data';
 
 const Register = () => {
 
@@ -39,7 +39,10 @@ const Register = () => {
     }
 
     return (
-        <div className="container mt-6 p-5">
+        <div className="container mt-9 p-5">
+            <Helmet>
+                <title>Register Page</title>
+            </Helmet>
             <div className="row d-flex justify-content-center m-6">
                 <div className="col-4">
                     <div className="subhead">Please</div>
