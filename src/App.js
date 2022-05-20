@@ -36,11 +36,6 @@ function App() {
         })
     }
 
-    const register = (authData) => {
-        setUser(authData)
-    }
-
-
     const login = (authData) => {
         setUser(authData);
     }

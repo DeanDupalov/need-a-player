@@ -37,12 +37,12 @@ const CreateEvent = () => {
 
         authService.create(event, user.accessToken)
             .then((result) => {
-                console.log(result);
+                console.log('then', result);
                 navigate('/')
             })
             .catch(err => {
-                //TODO notification
-                console.log(err);
+                navigate('/login')
+                
             })
     }
 

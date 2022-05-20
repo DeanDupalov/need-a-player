@@ -7,7 +7,7 @@ import * as authService from '../api/data';
 
 const Register = () => {
 
-    const { register } = useContext(AuthContext);
+    const { login } = useContext(AuthContext);
     const navigate = useNavigate()
 
     const onRegisterHandler = (e) => {
@@ -25,8 +25,7 @@ const Register = () => {
 
         authService.register(email, password)
             .then((authData) => {
-
-                register(authData);
+                login(authData); 
             
                 navigate('/')
             })
