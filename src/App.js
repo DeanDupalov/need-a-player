@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
 
-import { AuthContext } from "./contexts/AuthContext";
+import { AuthProvider } from "./contexts/AuthContext";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import Header from "./components/Header";
@@ -18,35 +17,10 @@ import CreateEvent from "./components/CreateEvent";
 
 function App() {
 
-    const [user, setUser] = useState({
-        _id: '',
-        email: '',
-        accessToken: ''
-
-    });
-    useEffect(() => {
-        console.log(user);
-    }, [user])
-    
-    const clearUser = () => {
-        setUser({
-            _id: '',
-            email: '',
-            accessToken: ''
-        })
-    }
-
-    const login = (authData) => {
-        setUser(authData);
-    }
-
-    const logout = () => {
-        clearUser();
-    }
-
+  
     return (
         <HelmetProvider>
-            <AuthContext.Provider value={{ user, login, register, logout }}>
+            <AuthProvider >
                 <>
                     <Helmet>
                         <title>Home Pge</title>
@@ -54,7 +28,7 @@ function App() {
                     </Helmet>
 
                     <div className="back-to-top"></div>
-                    <Header email={user.email} />
+                    <Header />
 
                     <main>
 
@@ -72,7 +46,7 @@ function App() {
                     <Footer />
 
                 </>
-            </AuthContext.Provider>
+            </AuthProvider>
         </HelmetProvider>
     );
 }
