@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Need-A-Player React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is to help people get together and play football.
 
 ## Available Scripts
 
