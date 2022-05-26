@@ -1,13 +1,13 @@
-import { useContext } from "react";
+
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { AuthContext } from "../contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
 
 import * as authService from '../api/data';
 
 const Register = () => {
 
-    const { login } = useContext(AuthContext);
+    const { login } = useAuth();
     const navigate = useNavigate()
 
     const onRegisterHandler = (e) => {

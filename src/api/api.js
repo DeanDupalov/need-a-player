@@ -1,6 +1,10 @@
 const baseUrl = 'http://localhost:3030';
 
-function createOptions(method = 'get', data, token=null) {
+function getUserData() {
+    return JSON.parse(localStorage.getItem('user'));
+}
+
+function createOptions(method = 'get', data) {
     const options = {
         method,
         headers: {},
@@ -10,24 +14,37 @@ function createOptions(method = 'get', data, token=null) {
         options.body = JSON.stringify(data);
     }
 
-    if (token !== null) {
-        options.headers['X-Authorization'] = token;
+    const user = getUserData();
+
+    if (user !== null) {
+        options.headers['Authorization-token'] = user.accessToken;
     }
+
     return options;
 }
 
 async function request(url, options) {
     try {
         const response = await fetch(baseUrl + url, options);
+        
+        if (response.ok !== true) {
+            if (response.status === 403) {
+                localStorage.removeItem('user');
+            }
+            const error = await response.json();
+            throw new Error(error.message);
+        }
 
+    
         try {
             return await response.json();
         } catch (err) {
+            
             return response;
         }
 
     } catch (err) {
-        alert(err.message);
+        // console.log('api ', err.message);
 
         throw err;
     }
@@ -37,8 +54,8 @@ export async function get(url) {
     return request(url, createOptions());
 }
 
-export async function post(url, data, token) {
-    return request(url, createOptions('post', data, token));
+export async function post(url, data) {
+    return request(url, createOptions('post', data));
 }
 
 export async function register(email, password) {

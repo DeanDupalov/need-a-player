@@ -1,12 +1,13 @@
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext";
+import { useAuth } from "../contexts/AuthContext";
+import { isAuth } from "../hoc/isAuth";
 
 import * as authService from "../api/data"
 
+
 const CreateEvent = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useAuth();
     const navigate = useNavigate();
 
     const createEventHandler = (e) => {
@@ -33,16 +34,18 @@ const CreateEvent = () => {
             startTime,
             endTime,
             creator: user
-        }
+        };
 
-        authService.create(event, user.accessToken)
+        authService.create(event)
             .then((result) => {
                 console.log('then', result);
                 navigate('/')
             })
             .catch(err => {
-                navigate('/login')
+               
+                console.log('create' , err.message.split('\n'));
                 
+            
             })
     }
 
@@ -93,4 +96,4 @@ const CreateEvent = () => {
 }
 
 
-export default CreateEvent;
+export default isAuth(CreateEvent);

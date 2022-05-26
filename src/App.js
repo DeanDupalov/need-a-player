@@ -5,19 +5,17 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import HomeBanner from "./components/HomeBanner"
 import Find from "./components/Find";
 import GetInTouch from "./components/GetInTouch";
-
 import Login from "./components/Login";
 import Register from "./components/Register";
-import HomeBanner from "./components/HomeBanner"
 import CreateEvent from "./components/CreateEvent";
 
 
 
 function App() {
 
-  
     return (
         <HelmetProvider>
             <AuthProvider >

@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext";
+
+import { useAuth } from "../contexts/AuthContext";
 import { Helmet } from 'react-helmet-async';
 
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ import * as authService from '../api/data';
 
 
 const Login = () => {
-    const { user, login } = useContext(AuthContext);
+    const { login } = useAuth();
     const navigate = useNavigate()
 
     const onLoginHandler = (e) => {
