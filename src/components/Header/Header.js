@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { AuthContext } from "../contexts/AuthContext";
+import { AuthContext } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-import * as authService from '../api/data';
+import * as authService from '../../api/data';
 
 
 const Header = () => {

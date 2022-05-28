@@ -1,9 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
-import { isAuth } from "../hoc/isAuth";
+import { useAuth } from "../../contexts/AuthContext";
+import { isAuth } from "../../hoc/isAuth";
 
-import * as authService from "../api/data"
+import * as authService from "../../api/data"
 
 
 const CreateEvent = () => {
@@ -45,7 +45,6 @@ const CreateEvent = () => {
                
                 console.log('create' , err.message.split('\n'));
                 
-            
             })
     }
 

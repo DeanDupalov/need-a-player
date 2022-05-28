@@ -8,9 +8,9 @@ import Footer from "./components/Footer";
 import HomeBanner from "./components/HomeBanner"
 import Find from "./components/Find";
 import GetInTouch from "./components/GetInTouch";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import CreateEvent from "./components/CreateEvent";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
+import CreateEvent from "./components/CreateEvent/CreateEvent";
 
 
 
@@ -22,7 +22,7 @@ function App() {
                 <>
                     <Helmet>
                         <title>Home Pge</title>
-                        <meta name="description" content="Tutorial for React Helmet" />
+                        {/* <meta name="description" content="dy description" /> */}
                     </Helmet>
 
                     <div className="back-to-top"></div>
