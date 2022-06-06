@@ -42,9 +42,8 @@ const CreateEvent = () => {
                 navigate('/')
             })
             .catch(err => {
-               
+                alert(err.message.split('\n'));
                 console.log('create' , err.message.split('\n'));
-                
             })
     }
 
@@ -64,7 +63,7 @@ const CreateEvent = () => {
                             <input type="text" className="form-control" name="name" placeholder="Name" />
                         </div>
                         <div className="py-2">
-                            <input type="number" className="form-control" name="members" placeholder="Members" />
+                            <input type="number" className="form-control" name="members" placeholder="Members a side" />
                         </div>
                         <div className="py-2">
                             <input type="text" className="form-control" name="town" placeholder="Town" />

@@ -1,6 +1,7 @@
-import PlayerCardHome from "./PlayerCardHome";
+import PlayerCardHome from "../PlayerCardHome";
 
 const PlayersListHome = () => {
+    
     return (
         <div className="page-section border-top">
             <div className="container">
@@ -14,8 +15,6 @@ const PlayersListHome = () => {
                     <PlayerCardHome />
                     <PlayerCardHome />
                     <PlayerCardHome />
-
-
                 </div>
 
                 <div className="text-center">

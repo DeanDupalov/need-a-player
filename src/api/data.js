@@ -8,3 +8,8 @@ export const logout = api.logout;
 export async function create(game) {
     return api.post('/data/games', game);
 }
+
+export async function getAllGames() {
+    return api.get('/data/games/lastThree');
+}
+

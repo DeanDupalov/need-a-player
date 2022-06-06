@@ -14,6 +14,10 @@ import CreateEvent from "./components/CreateEvent/CreateEvent";
 
 
 
+
+
+
+
 function App() {
 
     return (
@@ -21,8 +25,8 @@ function App() {
             <AuthProvider >
                 <>
                     <Helmet>
-                        <title>Home Pge</title>
-                        {/* <meta name="description" content="dy description" /> */}
+                        <title>Home Page</title>
+                        <meta name="description" content="This is an web application where you can find the best football events!" />
                     </Helmet>
 
                     <div className="back-to-top"></div>
@@ -39,9 +43,13 @@ function App() {
                             <Route path="/create" element={<CreateEvent />} />
                         </Routes>
 
+
+                        
+
                     </main>
 
                     <Footer />
+
 
                 </>
             </AuthProvider>

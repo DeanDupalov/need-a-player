@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 
-import PlayersListHome from "../PlayersListHome";
-import GamesListHome from "../GamesLIstHome";
-import Partners from "../Partners";
+import GamesListHome from '../GamesListHome';
+import PlayersListHome from '../PlayersListHome';
+import Partners from '../Partners'
+
 
 const HomeBanner = () => {
     return (
@@ -31,6 +32,8 @@ const HomeBanner = () => {
             <GamesListHome />
             <PlayersListHome />
             <Partners />
+
+
         </>
     )
 }

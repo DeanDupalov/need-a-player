@@ -1,6 +1,14 @@
+import { Helmet } from "react-helmet-async";
+
+
 const GetInTouch = () => {
     return (
         <div className="page-section">
+
+            <Helmet>
+                <title>Contact us</title>
+            </Helmet>
+
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-lg-6 py-3 wow fadeInUp">

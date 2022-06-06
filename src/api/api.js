@@ -56,6 +56,15 @@ export async function post(url, data) {
     return request(url, createOptions('post', data));
 }
 
+
+export async function put(url, data) {
+    return request(url, createOptions('put', data));
+}
+
+export async function del(url) {
+    return request(url, createOptions('delete'));
+}
+
 export async function register(email, password) {
     const result = await post('/users/register', { email, password });
 
