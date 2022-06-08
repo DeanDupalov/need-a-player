@@ -11,6 +11,7 @@ import GetInTouch from "./components/GetInTouch";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import CreateEvent from "./components/CreateEvent/CreateEvent";
+import DetailsEvent from "./components/DetailsEvent";
 
 
 
@@ -41,6 +42,9 @@ function App() {
                             <Route path="/login" element={<Login />} />
                             <Route path="/register" element={<Register />} />
                             <Route path="/create" element={<CreateEvent />} />
+                            <Route path="/details-event/:eventId" element={<DetailsEvent />} />
+
+                            
                         </Routes>
 
 

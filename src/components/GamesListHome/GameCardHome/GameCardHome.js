@@ -1,3 +1,8 @@
+
+import {Link, useParams} from 'react-router-dom';
+
+
+
 const GameCardHome = ({
     game
 }) => {
@@ -22,7 +27,7 @@ const GameCardHome = ({
                     
                 </div>
                 <div className="footer">
-                    <a href="#" className="btn btn-outline-primary rounded-pill">Even Details</a>
+                    <Link to={`/details-event/${game._id}`} className="btn btn-outline-primary rounded-pill">Even Details</Link>
                 </div>
             </div>
         </div>

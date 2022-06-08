@@ -17,7 +17,7 @@ const CreateEvent = () => {
 
         let name = formData.get('name');
         let members = formData.get('members');
-        let town = formData.get('town');
+        let imageUrl = formData.get('imageUrl');
         let address = formData.get('address');
         let description = formData.get('description');
         let date = formData.get('date');
@@ -27,7 +27,7 @@ const CreateEvent = () => {
         const event = {
             name,
             members,
-            town,
+            imageUrl,
             address,
             description,
             date,
@@ -66,7 +66,7 @@ const CreateEvent = () => {
                             <input type="number" className="form-control" name="members" placeholder="Members a side" />
                         </div>
                         <div className="py-2">
-                            <input type="text" className="form-control" name="town" placeholder="Town" />
+                            <input type="text" className="form-control" name="imageUrl" placeholder="Image Url" />
                         </div>
                         <div className="py-2">
                             <input type="text" className="form-control" name="address" placeholder="Address" />

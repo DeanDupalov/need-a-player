@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllGames } from '../../api/data'
 
-import GameCardHome from "../GameCardHome/GameCardHome";
+import GameCardHome from "./GameCardHome/GameCardHome";
 
 const GamesListHome = () => {
     const [games, setGames] = useState([]);
@@ -17,8 +17,7 @@ const GamesListHome = () => {
     }, [])
 
 
-    return (
-
+    const gamesSection = (
         <div className="page-section border-top">
             <div className="container">
                 <div className="text-center wow fadeInUp">
@@ -35,7 +34,18 @@ const GamesListHome = () => {
                 <Link to="/find" className="btn btn-outline-primary rounded-pill">Discover More</Link>
             </div>
         </div>
+    );
 
+    return (
+
+        <>
+            {games.length > 0
+                ? gamesSection
+                : <div className="container text-center mt-5">
+                    <Link to="/create" className="btn btn-outline-primary rounded-pill">Create First Event</Link>
+                </div>
+            }
+        </>
 
     )
 }
