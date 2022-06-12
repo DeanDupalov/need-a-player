@@ -33,7 +33,7 @@ const Header = () => {
     const userButtons = (
         <div>
             <NavLink to="/profile" className="btn btn-outline rounded-pill">Profile, {user.email}</NavLink>
-            <NavLink to="/javascript:void(0)" onClick={logoutHandler} className="btn btn-outline rounded-pill">Logout</NavLink>
+            <NavLink to="#" onClick={logoutHandler} className="btn btn-outline rounded-pill">Logout</NavLink>
         </div>
     );
 

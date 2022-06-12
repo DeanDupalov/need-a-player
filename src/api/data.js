@@ -18,7 +18,11 @@ export async function getEventById(id) {
     return api.get('/data/games/' + id);
 }
 
+export async function editEvent(id, data) {
+    return api.put('/data/games/' + id, data)
+}
+
 export async function deleteEventById(id) {
-    return api.del('/data/games/' + id);
+    return api.del('/data/games/' + id,);
 }
 

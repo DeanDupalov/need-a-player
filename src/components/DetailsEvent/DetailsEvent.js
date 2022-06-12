@@ -26,7 +26,7 @@ const DetailsEvent = () => {
     
     const creatorBtns = (
         <>
-            <Link to="#" className="btn btn-outline-secondary ml-2">Edit</Link>
+            <Link to={`/edit-event/${eventId}`} className="btn btn-outline-secondary ml-2">Edit</Link>
             <Link to="#" className="btn btn-outline-danger ml-2" onClick={deleteHandler}>Delete</Link>
         </>
     )
@@ -58,7 +58,7 @@ const DetailsEvent = () => {
                     </div>
                     <div className="col-lg-6 py-3 wow zoomIn">
                         <div className="img-place text-center">
-                        <img src={event.imageUrl} alt="Football Team Photo" />
+                            <img src={event.imageUrl} alt="Football Team Photo" />
                         </div>
                     </div>
                 </div>
